@@ -51,4 +51,36 @@ class Multilinguist
     json_response = JSON.parse(response.body)
     json_response['translationText']
   end
+
 end
+
+  class MathGenius < Multilinguist
+
+
+    def report_total(numbers_list)
+      @numbers_list = numbers_list
+        sum = 0
+      @numbers_list.each do |number|
+        sum += number
+    end
+
+    return "The sum of your number list is #{sum}"
+  end
+
+end
+
+valerie = MathGenius.new
+
+p valerie.report_total([23, 45, 65, 12, 34])
+
+p valerie.travel_to("Guatemala")
+
+p valerie.say_in_local_language(valerie.report_total([23, 45, 65, 12, 34]))
+
+p valerie.travel_to("Italy")
+
+p valerie.say_in_local_language(valerie.report_total([23, 45, 65, 12, 34]))
+
+p valerie.travel_to("France")
+
+p valerie.say_in_local_language(valerie.report_total([23, 45, 65, 12, 34]))
