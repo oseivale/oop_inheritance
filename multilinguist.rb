@@ -69,18 +69,58 @@ end
 
 end
 
-valerie = MathGenius.new
 
-p valerie.report_total([23, 45, 65, 12, 34])
+class QuoteCollector < Multilinguist
+    @@quotes = []
+  def initialize
 
-p valerie.travel_to("Guatemala")
+  end
 
-p valerie.say_in_local_language(valerie.report_total([23, 45, 65, 12, 34]))
+  def add_quote(quote)
+    @quote = quote
+    @@quotes << @quote
+    return @@quotes
+  end
 
-p valerie.travel_to("Italy")
+  def select_quote
+    @random_quote = @@quotes.sample
+    return @random_quote
+  end
+end
 
-p valerie.say_in_local_language(valerie.report_total([23, 45, 65, 12, 34]))
+# valerie = MathGenius.new
 
-p valerie.travel_to("France")
+# p valerie.report_total([23, 45, 65, 12, 34])
+#
+# p valerie.travel_to("Guatemala")
+#
+# p valerie.say_in_local_language(valerie.report_total([23, 45, 65, 12, 34]))
+#
+# p valerie.travel_to("Italy")
+#
+# p valerie.say_in_local_language(valerie.report_total([23, 45, 65, 12, 34]))
+#
+# p valerie.travel_to("France")
+#
+# p valerie.say_in_local_language(valerie.report_total([23, 45, 65, 12, 34]))
 
-p valerie.say_in_local_language(valerie.report_total([23, 45, 65, 12, 34]))
+sally = QuoteCollector.new
+dale = QuoteCollector.new
+britney = QuoteCollector.new
+sean = QuoteCollector.new
+ray = QuoteCollector.new
+
+p sally.add_quote("I love cookies!")
+p dale.add_quote("See the sun.")
+p britney.add_quote("Your eyes glow.")
+p ray.add_quote("I can eat any food I want :)")
+
+p sean.select_quote
+
+p sean.travel_to("France")
+
+p sean.say_in_local_language(sean.select_quote)
+
+p ray.travel_to("Spain")
+
+p ray.say_in_local_language(ray.select_quote)
